@@ -86,7 +86,25 @@ CREATE TABLE Subs (
     FOREIGN KEY (edition_id) FERENCES Editions(edition_id)
 );
 ```
-## делаем запрос на создание таблиц
+## Делаем запрос на создание таблиц
 
 ![](Data_base/Make_table1.png)
 ![](Data_base/Make_table2.png)
+
+## Заполняем таблицы данными
+
+**Таблица Addresses:**
+![](Data_base/change_Addresses.png)
+![](Data_base/table_Addresses.png)
+
+**Таблица Subscribers:**
+![](Data_base/change_Subscribers.png)
+![](Data_base/table_Subscribers.png)
+
+**Таблица Editions:**
+![](Data_base/change_Editions.png)
+![](Data_base/table_Editions.png)
+
+**Таблица Subs:**
+![](Data_base/change_Subs.png)
+![](Data_base/table_Subs.png)
