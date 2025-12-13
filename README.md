@@ -88,4 +88,5 @@ CREATE TABLE Subs (
 ```
 ## делаем запрос на создание таблиц
 
-![](Базы данных/Join запрос 1.png)
+![](Data_base/Make_table1.png)
+![](Data_base/Make_table2.png)
