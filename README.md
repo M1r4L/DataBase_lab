@@ -11,6 +11,8 @@
 
 ![](Er-Диаграмма.jpg)
 
+# Лабораторная работа 1
+
 **Логическая модель**
 
 *Подписчик:*
@@ -45,45 +47,45 @@
 
 **Физическая модель**
 ```sql
--- Создание таблицы Адрес
-CREATE TABLE Адрес (
-    Адрес_id INT PRIMARY KEY,
-    Индекс VARCHAR(10),
-    Город VARCHAR(100),
-    Улица VARCHAR(100),
-    Дом VARCHAR(20),
-    Квартира VARCHAR(20)
+CREATE TABLE Addresses (
+    address_id INT PRIMARY KEY,
+    postcode VARCHAR(10),
+    city VARCHAR(100),
+    street VARCHAR(100),
+    house VARCHAR(20),
+    apartment VARCHAR(20)
 );
 
--- Создание таблицы Подписчик
-CREATE TABLE Подписчик (
-    Подписчик_id INT PRIMARY KEY,
-    Фамилия VARCHAR(100) NOT NULL,
-    Имя VARCHAR(100) NOT NULL,
-    Отчество VARCHAR(100),
-    Дата_рождения DATE,
-    Телефон VARCHAR(20),
-    Адрес_id INT,
-    FOREIGN KEY (Адрес_id) REFERENCES Адрес(Адрес_id)
+CREATE TABLE Subscribers (
+    subscriber_id SERIAL PRIMARY KEY,
+    surname VARCHAR(100) NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    patronymic VARCHAR(100),
+    birthday_date DATE,
+    phone VARCHAR(20),
+    address_id INT,
+    FOREIGN KEY (address_id) REFERENCES Addresses(address_id)
 );
 
--- Создание таблицы Издание
-CREATE TABLE Издание (
-    Издание_id INT PRIMARY KEY,
-    Название VARCHAR(255) NOT NULL,
-    Категория VARCHAR(100),
-    Месячная_стоимость DECIMAL(10, 2) NOT NULL,
-    Год_основания INT
+CREATE TABLE Editions (
+    edition_id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    category VARCHAR(100),
+    month_cost DECIMAL(10, 2) NOT NULL,
+    foundation INT
 );
 
--- Создание таблицы Подписка (для реализации связи многие-ко-многим между Подписчиком и Изданием)
-CREATE TABLE Подписка (
-    Подписка_id INT PRIMARY KEY,
-    Подписчик_id INT NOT NULL,
-    Издание_id INT NOT NULL,
-    Количество_месяцев INT NOT NULL,
-    Дата_оформления DATE NOT NULL,
-    Период_доставки VARCHAR(50),
-    FOREIGN KEY (Подписчик_id) REFERENCES Подписчик(Подписчик_id),
-    FOREIGN KEY (Издание_id) REFERENCES Издание(Издание_id)
+CREATE TABLE Subs (
+    sub_id INT PRIMARY KEY,
+    subscriber_id INT NOT NULL,
+    edition_id INT NOT NULL,
+    month_numbers INT NOT NULL,
+    date_register DATE NOT NULL,
+    delivery_period VARCHAR(50),
+    FOREIGN KEY (subscriber_id) REFERENCES Subscribers(subscriber_id),
+    FOREIGN KEY (edition_id) FERENCES Editions(edition_id)
 );
+```
+## делаем запрос на создание таблиц
+
+![](./Базы данных/создание таблиц 1.png)
