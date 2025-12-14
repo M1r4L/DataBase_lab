@@ -166,3 +166,53 @@ CREATE TABLE Subs (
 ![](Data_base/optimize_v1.png)
 
 ![](Data_base/optimize_v2.png)
+
+# Лабораторная работа 4
+
+## Создание генераторов
+
+**генератор для Addresses:**
+![](Data_base/Gen_Addr1.png)
+
+**Вызов генератора:**
+![](Data_base/CGen_Addr1.png)
+
+**генератор для Editions:**
+![](Data_base/Gen_Edit1.png)
+
+**Вызов генератора:**
+![](Data_base/CGen_Edit1.png)
+
+**генератор для Subscribers:**
+![](Data_base/Gen_Subr1.png)
+
+**Вызов генератора:**
+![](Data_base/CGen_Subr1.png)
+
+**генератор для Subs:**
+![](Data_base/Gen_Subs1.png)
+
+**Вызов генератора:**
+![](Data_base/CGen_Subs1.png)
+
+**После вызова генераторов все таблицы стали заполнены**
+
+## Анализ планов выполнения запросов (EXPLAIN ANALYZE)
+
+**Сделаем анализ для самого первого запроса с join**
+
+![](Data_base/Analyze.png)
+
+Как видно на выполнения этого запроса уходит примерно 24 мс.
+Попробуем оптимизировать нашу БД чезер индексы
+
+**Создаем индекс**
+
+![](Data_base/Creat_idx.png)
+![](Data_base/Analyze_idx.png)
+
+**Делаем анализ того же запроса после создания индекса**
+
+![](Data_base/Analyze_after_Optimize.png)
+
+Как мы можем увидеть теперь анализ занимает меньше времени, а конкретно 17 мс, вместо 24 мс.
