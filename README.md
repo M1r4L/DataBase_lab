@@ -209,6 +209,8 @@ CREATE TABLE Subs (
 **Создаем индекс**
 
 ![](Data_base/Creat_idx.png)
+
+**Обновляем статистику**
 ![](Data_base/Analyze_idx.png)
 
 **Делаем анализ того же запроса после создания индекса**
