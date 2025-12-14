@@ -218,3 +218,68 @@ CREATE TABLE Subs (
 ![](Data_base/Analyze_after_Optimize.png)
 
 Как мы можем увидеть теперь анализ занимает меньше времени, а конкретно 17 мс, вместо 24 мс.
+
+# Лабораторная работа 5
+
+## Создание триггера
+
+**Создаем триггер удаляющий информацию о подписке**
+
+![](Data_base/Creat_Trigger.png)
+
+**Создаем триггер на таблиц Editions**
+
+![](Data_base/Creat_Trigger2.png)
+
+**Теперь проверим его работу**
+Выведем информацию из таблицы Subs с конкертным editions_id, после чего удалим информацию
+о нем из таблицы Editions
+
+![](Data_base/Table_Trigger1.png)
+
+![](Data_base/Table_Trigger2.png)
+
+![](Data_base/Table_Trigger3.png)
+
+Как мы видим если попытаться вновь вывести информацию из таблицы Subs, то никаких данных нет
+
+## Создание таблица-журнал для отслеживания изменений в таблице Subscribers
+
+![](Data_base/Magazine.png)
+
+## Создание триггеров аудита изменений (INSERT, UPDATE, DELETE)
+**INSERT**
+
+![](Data_base/Insert.png)
+
+![](Data_base/Insert2.png)
+
+Как видно в журнале появилась информация об этой операции
+
+**UPDATE**
+
+![](Data_base/Update.png)
+
+![](Data_base/Update2.png)
+
+Информация так же отображается в журнале
+
+**DELETE**
+
+![](Data_base/Delete.png)
+
+Вот информация которую мы будем удалать, она была получена из работы двух предыдущих триггеров insert и update
+
+![](Data_base/Table_change.png)
+
+Запускаем триггер
+
+![](Data_base/Delete2.png)
+
+Информация так же отображается в журнале
+
+И для проверки можно вывести таблицу Subscribers.
+Теперь в ней снова нет строки которую мы создали
+
+![](Data_base/Table_change_del.png)
+
